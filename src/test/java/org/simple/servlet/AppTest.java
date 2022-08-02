@@ -1,4 +1,4 @@
-package org.codelikethewind.servlet;
+package org.simple.servlet;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

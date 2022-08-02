@@ -1,4 +1,4 @@
-package org.codelikethewind.servlet;
+package org.simple.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
