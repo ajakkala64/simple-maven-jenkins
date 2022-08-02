@@ -20,11 +20,11 @@ pipeline {
         script {
 			openshift.withCluster() { 
   				openshift.withProject("jram-dev") {
-    				def buildConfigExists = openshift.selector("bc", "simplemaven").exists() 
+    				def buildConfigExists = openshift.selector("bc", "my-pipeline").exists() 
     				if(!buildConfigExists){ 
-      					openshift.newBuild("--name=simplemaven", "--docker-image=registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7", "--binary") 
+      					openshift.newBuild("--name=my-pipeline", "--docker-image=registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7", "--binary") 
     				} 
-    				openshift.selector("bc", "simaplemaven").startBuild("--from-file=target/simple-maven-jenkins-0.0.1-SNAPSHOT.war", "--follow") 
+    				openshift.selector("bc", "my-pipeline").startBuild("--from-file=target/simple-maven-jenkins-0.0.1-SNAPSHOT.war", "--follow") 
     			} 
     		}        
     	}
