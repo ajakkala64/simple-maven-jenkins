@@ -24,7 +24,7 @@ pipeline {
     				if(!buildConfigExists){ 
       					openshift.newBuild("--name=simplemaven", "--docker-image=registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7", "--binary") 
     				} 
-    				openshift.selector("bc", "simaplemaven").startBuild("--from-file=target/simple-servlet-0.0.1-SNAPSHOT.war", "--follow") 
+    				openshift.selector("bc", "simaplemaven").startBuild("--from-file=target/simple-maven-jenkins-0.0.1-SNAPSHOT.war", "--follow") 
     			} 
     		}        
     	}
