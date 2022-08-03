@@ -24,7 +24,8 @@ pipeline {
     				if(!buildConfigExists){ 
       					openshift.newBuild("--name=my-pipeline", "--docker-image=registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7", "--binary") 
     				} 
-    				openshift.selector("bc", "my-pipeline").startBuild("--from-file=target/simple-maven-jenkins-0.0.1-SNAPSHOT.war", "--follow").logs('-f')
+    				def build = openshift.selector("bc", "my-pipeline").startBuild("--from-file=target/simple-maven-jenkins-0.0.1-SNAPSHOT.war", "--follow")
+					build.logs("-f")
     			} 
     		}        
     	}
